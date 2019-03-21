@@ -1,7 +1,6 @@
 import React from 'react';
 import logoGloboPlay from '../images/globoplay.svg';
 import Headline from './Headline';
-import Rail from './Rail';
 import '../styles/Main.scss';
 
 const Main = () => {
@@ -14,8 +13,6 @@ const Main = () => {
       </header>
 
       <Headline />
-
-      <Rail />
     </main>
   )
 }

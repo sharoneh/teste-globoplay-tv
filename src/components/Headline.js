@@ -1,6 +1,7 @@
 import React from 'react';
 import logoBbb from '../images/logo-bbb.png';
 import '../styles/Headline.scss';
+import Rail from './Rail';
 
 const Headline = () => {
   return (
@@ -14,6 +15,8 @@ const Headline = () => {
         
         <button>Veja mais</button>
       </div>
+
+      <Rail />
     </div>
   )
 }
