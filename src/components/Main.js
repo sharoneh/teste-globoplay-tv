@@ -1,20 +1,22 @@
 import React from 'react';
-import logoBbb from '../images/logo-bbb.png';
+import logoGloboPlay from '../images/globoplay.svg';
+import Headline from './Headline';
+import Rail from './Rail';
 import '../styles/Main.scss';
 
 const Main = () => {
   return (
-    <div className="main-content">
-      <img className="logo" src={logoBbb} alt="Big Brother Brasil"/>
-      
-      <h1>Acompanhe 24h ao vivo a casa mais<br /> vigiada do Brasil</h1>
+    <main>
+      <header>
+        <svg height="100" width="200" fill="white">
+          <use xlinkHref={`${logoGloboPlay}#logo_globoplay`} />
+        </svg>
+      </header>
 
-      <div className="actions">
-        <button>Assista</button>
-        
-        <button>Veja mais</button>
-      </div>
-    </div>
+      <Headline />
+
+      <Rail />
+    </main>
   )
 }
 

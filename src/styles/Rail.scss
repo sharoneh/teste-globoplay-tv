@@ -1,0 +1,50 @@
+.rail {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  padding: 0 2rem;
+  margin-left: 5.2rem;
+  
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 4;
+  }
+  
+  .rail-content {
+    width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+
+    &:before {
+      content: '';
+      height: 5rem;
+      width: 100%;
+      top: -5rem;
+      left: -5.2rem;
+      position: absolute;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(0, 0, 0, .7), transparent);
+    }
+    
+    &:after {
+      content: '';
+      height: 100%;
+      width: 5.2rem;
+      left: -5.2rem;
+      position: absolute;
+      z-index: 1;
+      background: rgba(0, 0, 0, .7);
+    }
+
+    &:focus-within {
+      padding-bottom: 5rem;
+      transition-duration: .5s;
+    }
+  }
+}
