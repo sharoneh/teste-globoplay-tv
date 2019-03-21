@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "node-sass": "^4.11.0",
+    "nuka-carousel": "^4.5.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-icons": "^3.5.0",

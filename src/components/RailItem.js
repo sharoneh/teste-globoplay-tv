@@ -1,12 +1,12 @@
 import React from 'react';
 import '../styles/RailItem.scss';
 
-const RailItem = () => {
+const RailItem = ({ category, title }) => {
   return (
     <button className="rail-item">
-      <span className="category">Realities</span>
+      <span className="category">{category}</span>
 
-      <h3>Piscina</h3>
+      <h3>{title}</h3>
     </button>
   )
 }

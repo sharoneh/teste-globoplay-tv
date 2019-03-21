@@ -16,6 +16,8 @@ button.rail-item {
   justify-content: flex-end;
   color: white;
   padding: 1rem;
+  // flex-shrink: 0;
+  // flex: 1;
   
   &:focus {
     transition-duration: .5s;

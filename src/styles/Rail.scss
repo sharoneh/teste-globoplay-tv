@@ -2,10 +2,12 @@
   color: white;
   background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
   padding: 0 2rem 2rem;
-  min-width: 100vw;
+  width: 100vw;
   margin-top: 5rem;
   position: relative;
   left: -2rem;
+  z-index: 2;
+  transition-duration: .5s;
   
   h2 {
     font-size: 1.1rem;
@@ -15,7 +17,7 @@
   }
   
   .rail-content {
-    display: flex;
+    display: inline-flex;
 
     &:before, &:after {
       content: '';
