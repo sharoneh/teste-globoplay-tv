@@ -1,0 +1,21 @@
+.show {
+  background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
+  min-height: 100%;
+  width: 35vw;
+  position: relative;
+  z-index: 2;
+  padding: 5rem 2rem;
+  margin-left: 5.2rem;
+
+  &:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, .7), transparent);
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    z-index: 1;
+  }
+}

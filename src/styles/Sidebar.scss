@@ -5,6 +5,7 @@ aside {
   display: flex;
   align-items: center;
   transition-duration: .5s;
+  transition-property: width;
   position: fixed;
   left: 0;
   z-index: 3;

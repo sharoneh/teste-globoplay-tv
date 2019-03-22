@@ -1,20 +1,30 @@
 import React from 'react';
 import logoGloboPlay from '../images/globoplay.svg';
-import Headline from './Headline';
+import Show from './Show';
 import '../styles/Main.scss';
+import { highlightNavigation, sidebarNavigation, railNavigation } from '../redux/AppReducer';
+import { connect } from 'react-redux';
 
-const Main = () => {
-  return (
-    <main>
-      <header>
-        <svg height="100" width="200" fill="white">
-          <use xlinkHref={`${logoGloboPlay}#logo_globoplay`} />
-        </svg>
-      </header>
+class Main extends React.Component {
+  componentDidMount() {
+    this.props.sidebarNavigation()
+    this.props.highlightNavigation()
+    this.props.railNavigation()
+  }
 
-      <Headline />
-    </main>
-  )
+  render() {
+    return (
+      <main>
+        <header>
+          <svg height="100" width="200" fill="white">
+            <use xlinkHref={`${logoGloboPlay}#logo_globoplay`} />
+          </svg>
+        </header>
+
+        <Show />
+      </main>
+    )
+  }
 }
 
-export default Main
+export default connect(null, { highlightNavigation, sidebarNavigation, railNavigation })(Main)

@@ -11,12 +11,12 @@ const Rail = ({ railItems }) => {
   const slidesToShow = Math.floor(width / railItemWidth)
 
   return (
-    <div className="rail">
+    <div className="rail" id="rail">
       <h2>Agora no BBB</h2>
 
       <div className="rail-content">
         <Carousel
-          enableKeyboardControls
+          // enableKeyboardControls
           slidesToShow={slidesToShow}
           withoutControls
           width="100vw"
