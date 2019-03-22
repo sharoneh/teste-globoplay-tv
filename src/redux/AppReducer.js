@@ -3,9 +3,11 @@ import { FiSearch, FiRadio } from 'react-icons/fi';
 import { FaShoppingBag, FaUserCircle, FaHome } from 'react-icons/fa';
 import { keycodes } from '../constants';
 import railItemImage from '../images/bbb-19-logo.jpg';
+import highlightBg from '../images/tiago-leifert-o-bbb19.jpg';
 
 const CHANGE_HIGHLIGHT = 'CHANGE_HIGHLIGHT'
 const FOCUS_RAIL_ITEM = 'FOCUS_RAIL_ITEM'
+const CHANGE_BACKGROUND_IMAGE = 'CHANGE_BACKGROUND_IMAGE'
 
 const INITIAL_STATE = {
   sidebarItems: [
@@ -65,8 +67,11 @@ const INITIAL_STATE = {
   highlighted: 'headline',
   focusedRailItem: {
     show: '',
-    image: null,
     title: ''
+  },
+  background: {
+    image: highlightBg,
+    fade: false
   }
 }
 
@@ -81,6 +86,14 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         focusedRailItem: action.payload
+      }
+    case CHANGE_BACKGROUND_IMAGE:
+      return {
+        ...state,
+        background: {
+          ...state.background,
+          ...action.payload
+        }
       }
     default:
       return state
@@ -144,14 +157,10 @@ export const highlightNavigation = () => {
     buttons.forEach(btn => {
       btn.addEventListener('keydown', event => {
         if (event.keyCode === keycodes.down) {
-          // dispatch(changeHighlight('rail'))
-
           const firstRailItem = document.querySelector('.rail-item')
           firstRailItem.focus()
         }
       })
-
-      // btn.addEventListener('focus', () => dispatch(changeHighlight('headline')))
     })
   }
 }
@@ -196,8 +205,10 @@ export const railNavigation = () => {
 
         dispatch({
           type: FOCUS_RAIL_ITEM,
-          payload: { show, image, title }
+          payload: { show, title }
         })
+
+        dispatch(bgChange(image))
       })
     })
   }
@@ -215,6 +226,27 @@ export const changeHighlight = (highlight) => {
         type: FOCUS_RAIL_ITEM,
         payload: INITIAL_STATE.focusedRailItem
       })
+
+      dispatch(bgChange(highlightBg))
     }
+  }
+}
+
+export const bgChange = (image) => {
+  return dispatch => {
+    dispatch({
+      type: CHANGE_BACKGROUND_IMAGE,
+      payload: { fade: true }
+    })
+
+    setTimeout(() => dispatch({
+      type: CHANGE_BACKGROUND_IMAGE,
+      payload: { image }
+    }), 300)
+
+    setTimeout(() => dispatch({
+      type: CHANGE_BACKGROUND_IMAGE,
+      payload: { fade: false }
+    }), 600)
   }
 }

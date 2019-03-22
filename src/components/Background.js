@@ -1,23 +1,25 @@
 import React from 'react';
 import '../styles/Background.scss';
-import highlightBg from '../images/tiago-leifert-o-bbb19.jpg';
 import { connect } from 'react-redux';
 
-const Background = ({ image }) => {
-  return (
-    <div className="background"
-      style={{
-        backgroundImage: `url('${image || highlightBg}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center'
-      }}
-    ></div>
-  )
+class Background extends React.Component {
+  render() {
+    return (
+      <div className={`background${this.props.fade ? ' fade' : ''}`}
+        style={{
+          backgroundImage: `url('${this.props.image}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center'
+        }}
+      >
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
-  const { image } = state.focusedRailItem
-  return { image }
+  const { image, fade } = state.background
+  return { image, fade }
 }
 
 export default connect(mapStateToProps)(Background)
