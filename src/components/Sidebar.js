@@ -1,27 +1,34 @@
 import React from 'react';
 import '../styles/Sidebar.scss';
-import { FiSearch, FiRadio } from 'react-icons/fi';
-import { FaShoppingBag, FaUserCircle, FaHome } from 'react-icons/fa';
+import { connect } from 'react-redux';
 
-const Sidebar = () => {
-  return (
-    <aside>
-      <ul>
-        <Button label="Busca"           icon={<FiSearch />}/>
-        <Button label="Início"          icon={<FaHome />}/>
-        <Button label="Agora na Globo"  icon={<FiRadio />}/>
-        <Button label="Categorias"      icon={<FaShoppingBag />}/>
-        <Button label="Minha conta"     icon={<FaUserCircle />}/>
-      </ul>
-    </aside>
-  )
+class Sidebar extends React.Component {
+  render() {
+    return (
+      <aside>
+        <ul>
+          {this.props.sidebarItems.map((item, index) => (
+            <Button
+              { ...item }
+              key={`sidebarItem#${index}`}
+              index={index}
+            />
+          ))}
+        </ul>
+      </aside>
+    )
+  }
 }
 
-const Button = ({ label, icon }) => {
+const Button = ({ label, icon, index, ...props }) => {
   return (
     <li>
-      
-      <button>
+      <button
+        className="sidebar-item"
+        index={index}
+        id={`sidebar-item-${index}`}
+        { ...props }
+      >
         {icon || null}
         <span>{label}</span>
       </button>
@@ -29,4 +36,9 @@ const Button = ({ label, icon }) => {
   )
 }
 
-export default Sidebar
+const mapStateToProps = state => {
+  const { sidebarItems } = state
+  return { sidebarItems }
+}
+
+export default connect(mapStateToProps, {})(Sidebar)

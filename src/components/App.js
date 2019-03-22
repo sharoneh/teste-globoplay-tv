@@ -3,24 +3,28 @@ import '../styles/App.scss';
 import Sidebar from './Sidebar';
 import Main from './Main';
 import Background from './Background';
+import store from '../redux/store';
+import { Provider } from 'react-redux';
+import { highlightNavigation, sidebarNavigation, railNavigation } from '../redux/AppReducer';
 
 class App extends Component {
-  // componentDidMount() {
-  //   document.addEventListener('keydown', event => {
-  //     // console.log(event.keyCode)
-  //     console.log(document.activeElement)
-  //   })
-  // }
+  componentDidMount() {
+    sidebarNavigation()
+    highlightNavigation()
+    railNavigation()
+  }
 
   render() {
     return (
-      <div className="App">
-        <Sidebar />
-
-        <Background />
-      
-        <Main />
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <Sidebar />
+  
+          <Background />
+        
+          <Main />
+        </div>
+      </Provider>
     )
   }
 }
