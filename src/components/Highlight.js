@@ -3,6 +3,7 @@ import logoBbb from '../images/logo-bbb.png';
 import { connect } from 'react-redux';
 import '../styles/Highlight.scss';
 import { highlightNavigation } from '../redux/AppReducer';
+import { FaPlay } from 'react-icons/fa';
 
 class Highlight extends React.Component {
   componentDidUpdate() {
@@ -30,7 +31,10 @@ class Highlight extends React.Component {
           <h1>Acompanhe 24h ao vivo a casa mais<br /> vigiada do Brasil</h1>
     
           <div className="actions">
-            <button>Assista</button>
+            <button>
+              <FaPlay />
+              Assista
+            </button>
             
             <button>Veja mais</button>
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/RailItem.scss';
+import { FaPlay } from 'react-icons/fa';
 
 const RailItem = ({ category, title, index, show, image }) => {
   const gradient = 'linear-gradient(transparent, rgba(0, 0, 0, 1))'
@@ -19,6 +20,10 @@ const RailItem = ({ category, title, index, show, image }) => {
       <span className="category">{category}</span>
 
       <h3>{title}</h3>
+
+      <div className="overlay">
+        <FaPlay />
+      </div>
     </button>
   )
 }

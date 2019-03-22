@@ -17,6 +17,16 @@ button.rail-item {
   &:focus {
     transition-duration: .5s;
     border: 1.5px solid white;
+
+    span.category, h3 {
+      opacity: 0;
+      transition-duration: .5s;
+    }
+    
+    .overlay svg {
+      opacity: 1;
+      transition-duration: .5s;
+    }
   }
 
   span.category {
@@ -24,10 +34,32 @@ button.rail-item {
     font-size: 1rem;
     font-weight: 100;
     -webkit-font-smoothing: antialiased;
+    opacity: 1;
+    transition-duration: .5s;
   }
 
   h3 {
     font-size: 1.4rem;
     margin: 0;
+    opacity: 1;
+    transition-duration: .5s;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      height: 4rem;
+      width: 4rem;
+      opacity: 0;
+      transition-duration: .5s;
+    }
   }
 }

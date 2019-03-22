@@ -28,20 +28,19 @@ aside {
         text-align: left;
         display: flex;
         align-items: center;
+        position: relative;
 
         &:focus {
           background-color: white;
           color: black;
         }
 
-        svg {
-          margin-right: 15px;
-        }
-
         span {
           opacity: 0;
-          display: none;
           white-space: nowrap;
+          position: absolute;
+          left: 5rem;
+          transition-duration: .5s;
         }
       }
     }
@@ -53,8 +52,6 @@ aside {
 
     ul li button span {
       opacity: 1;
-      display: unset;
-      transition-delay: 1s;
       transition-duration: .5s;
       transition-property: opacity;
     }
